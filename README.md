@@ -1,0 +1,2 @@
+# hsks-sprachsynthese
+Hauptseminar Sprachsynthese
