@@ -42,28 +42,28 @@ while i<=numel(buchstaben)
 	disp(doppellaut);
 	switch doppellaut
 		case 'de'			%%http://www.influenzaarchive.org/cgi/p/pod/dod-idx?c=icmc;idno=bbp2372.2007.174
-			f11=250;
-			f21=2000;
+			f11=1;
+			f21=1800;
 			f12=500;
 			f22=2300;
 		case 'da'
 			f11=250;
-			f21=2000;
+			f21=1500;
 			f12=1000;
 			f22=1400;
 		case 'do'
 			f11=250;
-			f21=2000;
+			f21=1400;
 			f12=500;
 			f22=1000;
 		case 'du'
-			f11=250;
-			f21=2000;
+			f11=1;
+			f21=1800;
 			f12=320;
 			f22=800;
 		case 'di'	
-			f11=250;
-			f21=2000;
+			f11=1;
+			f21=2400;
 			f12=320;
 			f22=3200;
 		case 'be'	
@@ -72,23 +72,23 @@ while i<=numel(buchstaben)
 			f12=500;
 			f22=2300;
 		case 'ba'
-			f11=250;
+			f11=500;
 			f21=1100;
 			f12=1000;
 			f22=1400;
 		case 'bo'
 			f11=250;
-			f21=1100;
+			f21=800;
 			f12=500;
 			f22=1000;
 		case 'bi'		
-			f11=250;
-			f21=1100;
+			f11=1;
+			f21=2000;
 			f12=320;
 			f22=3200;
 		case 'bu'		
 			f11=250;
-			f21=1100;
+			f21=700;
 			f12=320;
 			f22=800;
 		case '|a'

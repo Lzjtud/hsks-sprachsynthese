@@ -70,21 +70,21 @@ charnum_temp=0; %temporäre Charnum
 		case 'diphthong'
 			phonemelength_end = 2*phonemelength;
 			sound=diphthong({word(charnum:charnum+1)},phonemelength_end,fs);				%Buchstabe, Zeitdauer (Samples*Samplingtime), Samplingfreq
-			charnum_temp = charnum +2;%diphtong hat 2 		
+			charnum_temp = charnum +2;%diphtong hat 2 Buchstaben		
 		case 'vokal'
 			sound=stimmhaft(buchstabe,phonemelength,fs);					%Buchstabe, Zeitdauer (Samples*Samplingtime), Samplingfreq
-			charnum_temp = charnum +1;%diphtong hat 1			
+			charnum_temp = charnum +1;%vokal hat 1 Buchstaben			
 		case 'zisch'
 			sound=zischlaut(buchstabe,phonemelength,fs);					%Buchstabe, Zeitdauer (Samples*Samplingtime), Samplingfreq
-			charnum_temp = charnum +1;%diphtong hat 1???
+			charnum_temp = charnum +1;%diphtong hat x Buchstaben(zurzeit nur 1 implementiert)
 		case 'plosiv'
-			phonemelength_end = phonemelength + 0.083;
-			sound=plosiv(word(charnum:charnum+1),phonemelength,fs);
+			phonemelength_end = phonemelength*1.5 + 0.083;
+			sound=plosiv(word(charnum:charnum+1),phonemelength*1.5,fs);
 			sound=[zeros(1,floor(0.083*fs)) sound];
-			charnum_temp = charnum +2;%diphtong hat 2
+			charnum_temp = charnum +2;%plosiv hat 2
 		case 'pause'
 			sound=zeros(1,phonemesamples);
-			charnum_temp = charnum +1;%diphtong hat 1
+			charnum_temp = charnum +1;%pause hat 1
 			phonemelength_end = phonemelength;
 	end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
