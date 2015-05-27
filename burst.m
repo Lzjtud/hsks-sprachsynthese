@@ -53,6 +53,20 @@ if (nargin<=3) B=[1500 2000]; end %bandwidth
 			B2=1000;
 			c1=5;		%wichtung der Filter
 			c2=-10;
+		case 'k'
+			f1=500;	
+			f2=2000;	
+			B1=500;
+			B2=500;
+			c1=15;		%wichtung der Filter
+			c2=15;
+		case 'g'		
+			f1=400;	
+			f2=2000;	
+			B1=500;
+			B2=600;
+			c1=15;		%wichtung der Filter
+			c2=0;
 	end
 	b1=fir1(n,[(f1-B1/2)*Ts*2,(f1+B1/2)*Ts*2], "bandpass");
 	b2=fir1(n,[(f2-B2/2)*Ts*2,(f2+B2/2)*Ts*2], "bandpass");
