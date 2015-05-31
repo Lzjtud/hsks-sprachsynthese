@@ -36,5 +36,9 @@ switch laut
 	case 'f'	lauttyp='zisch';
 	case 's'	lauttyp='zisch';
 	case 'sch'	lauttyp='zisch';
+	
+	case 'n'	lauttyp='nasal';
+	case 'm'	lauttyp='nasal';
+	
 	otherwise 	lauttyp='none';
 end

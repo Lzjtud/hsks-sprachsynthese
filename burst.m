@@ -68,8 +68,8 @@ if (nargin<=3) B=[1500 2000]; end %bandwidth
 			c1=15;		%wichtung der Filter
 			c2=0;
 	end
-	b1=fir1(n,[(f1-B1/2)*Ts*2,(f1+B1/2)*Ts*2], "bandpass");
-	b2=fir1(n,[(f2-B2/2)*Ts*2,(f2+B2/2)*Ts*2], "bandpass");
+	b1=fir1(n,[(f1-B1/2)*Ts*2,(f1+B1/2)*Ts*2], 'bandpass');
+	b2=fir1(n,[(f2-B2/2)*Ts*2,(f2+B2/2)*Ts*2], 'bandpass');
 
 	y= 10^(c1/20)*filter(b1, 1, x)+10^(c2/20)*filter(b2, 1, x);
 	%y=c1*formantfilter(x,Ts,f1,B1)+0*c2*formantfilter(x,Ts,f2,B2);	%Parallele Filterung, eventuell Wichtungsfaktoren
