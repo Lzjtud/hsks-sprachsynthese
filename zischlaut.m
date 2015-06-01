@@ -25,10 +25,10 @@ if (nargin<=3) B=[1500 2000]; end %bandwidth
 	disp(buchstaben);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-for i=1:numel(buchstaben)
-	buchstabe=buchstaben(i);
+%for i=1:numel(buchstaben)
+%	buchstabe=buchstaben(i);
 	
-	switch char(buchstabe)
+	switch char(buchstaben)
 		case 's'		%Orientierung an Narayanan et al. 'Noise Source Models for Fricative Consonants'
 			f1=6000;	%B1=500;
 			f2=7800;	%B2=1000;
@@ -51,5 +51,5 @@ for i=1:numel(buchstaben)
 	
 	y=formantfilter(x,Ts,f1,B1)+formantfilter(x,Ts,f2,B2);	%Parallele Filterung, eventuell Wichtungsfaktoren
 	
-	wavwrite(y'/max(y),fs,strcat('zischlaut-',char(buchstabe),'.wav'));
-end
+	wavwrite(y'/max(y),fs,strcat('zischlaut-',char(buchstaben),'.wav'));
+%end
