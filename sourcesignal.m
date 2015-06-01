@@ -6,7 +6,7 @@ if (nargin<=1) DUR=2; end %duration in sec
 if (nargin<=2) fs=44100; end %sampling freq in Hz
 
 	Ts=1/fs;
-	f0=150;	% Grundschwingung, Tonhoehe
+	f0=125;	% Grundschwingung, Tonhoehe
 	
 	samples=ceil(DUR*fs);
 	
@@ -34,8 +34,8 @@ if (nargin<=2) fs=44100; end %sampling freq in Hz
 			x0 = [x0_1 x0_2 x0_3 x0_4 x0_5];
 		otherwise
 			N=length(t0);
-			N1=.6*N;
-			N2=.8*N;
+			N1=floor(.6*N);
+			N2=floor(.8*N);
     
 			x0_1=.5*(1-cos(pi*t0(1:N1-1)/t0(N1)));		%Anregungssignal aus meinem Buch. hinter .* stehen die Intervalle - wie setze ich so etwas zusammen?
 			x0_2 = cos(2*pi*(t0(N1:N2-1)-t0(N1))/t0(N2));    %ANPASSUNG (mal 2)
