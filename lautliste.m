@@ -35,6 +35,9 @@ switch laut
 	case 'p'	lauttyp='plosiv_st';
 	case 'k'	lauttyp='plosiv_st';
 
+	case 'n'	lauttyp='nasal';
+	case 'm'	lauttyp='nasal';
+
 
 	case '_'	lauttyp='pause';
 

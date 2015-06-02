@@ -96,6 +96,9 @@ window = 1;		%soll noch gefenster werden?
 		case 'pause'
 			sound=zeros(1,phonemesamples);
 			charnum_temp = charnum +1;												%pause hat 1
+		case 'nasal'
+			sound=nasal(word(charnum),phonemelength,fs);
+			charnum_temp = charnum +1;
 	end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 phonemesamples_end=numel(sound);	
@@ -105,7 +108,7 @@ phonemesamples_end=numel(sound);
 	
 	wind=tukeywin(numel(sound),alpha);								%Window (Samples)
 	sound_out = sound.*wind';										%Fenstern des Lautes
-	if((max(sound_out) != 0)&(window == 1)) sound_out = sound_out/max(sound_out); end	%Normierung
+	if(max(sound_out) != 0) if(window == 1) sound_out = sound_out/max(sound_out); end end	%Normierung
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
