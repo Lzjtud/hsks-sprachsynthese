@@ -31,6 +31,11 @@ switch laut
 	case 'bu'	lauttyp='plosiv';
 	case '|a'	lauttyp='plosiv';
 
+	case 't'	lauttyp='plosiv_st';
+	case 'p'	lauttyp='plosiv_st';
+	case 'k'	lauttyp='plosiv_st';
+
+
 	case '_'	lauttyp='pause';
 
 	case 'f'	lauttyp='zisch';
