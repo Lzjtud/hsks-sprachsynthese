@@ -17,22 +17,27 @@ if (nargin<=3) B=[100 160]; end %bandwidth
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 i=1;
+fac=1;
 while i<=numel(buchstaben)
 	buchstabe=buchstaben(i);
 	i=i+1;
 	switch buchstabe
 		case 't'			
 			peri_num = 0.5;
+			fac = 0.7;
 		case 'p'	
 			peri_num = 3;
+			fac = 0.1;
 		case 'k'
 			peri_num = 2;
+			fac = 0.5;
 	end
+	disp(fac);
 	time = linspace(0, 2*pi, fs*bl);
 	cosi = cos(time*peri_num)+2;
 	burs = burst(buchstabe,bl,fs);
 	burs = burs/(2*max(burs(1:bl*fs)));
 	burs = burs.*cosi;	
-	wavwrite(burs'/max(burs),fs,strcat('plosiv-stimmlos-',buchstaben,'.wav'));
-	y=burs;
+	wavwrite(burs'/(max(burs))*fac,fs,strcat('plosiv-stimmlos-',buchstaben,'.wav'));
+	y=burs/(max(burs))*fac;
 end
