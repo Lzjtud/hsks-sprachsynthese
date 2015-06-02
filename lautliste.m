@@ -19,25 +19,28 @@ switch laut
 	case 'ai'	lauttyp='diphthong';
 	case 'ie'	lauttyp='diphthong';
 
-	case 'de'	lauttyp='plosiv';
 	case 'da'	lauttyp='plosiv';
-	case 'do'	lauttyp='plosiv';
+	case 'de'	lauttyp='plosiv';
 	case 'di'	lauttyp='plosiv';
+	case 'do'	lauttyp='plosiv';
 	case 'du'	lauttyp='plosiv';
+
+	case 'ba'	lauttyp='plosiv';	
 	case 'be'	lauttyp='plosiv';
-	case 'ba'	lauttyp='plosiv';
-	case 'bo'	lauttyp='plosiv';
 	case 'bi'	lauttyp='plosiv';
+	case 'bo'	lauttyp='plosiv';
 	case 'bu'	lauttyp='plosiv';
+
+	case 'ga'	lauttyp='plosiv';
+	case 'ge'	lauttyp='plosiv';
+	case 'gi'	lauttyp='plosiv';	
+	case 'go'	lauttyp='plosiv';
+	case 'gu'	lauttyp='plosiv';
 	case '|a'	lauttyp='plosiv';
 
 	case 't'	lauttyp='plosiv_st';
 	case 'p'	lauttyp='plosiv_st';
 	case 'k'	lauttyp='plosiv_st';
-
-	case 'n'	lauttyp='nasal';
-	case 'm'	lauttyp='nasal';
-
 
 	case '_'	lauttyp='pause';
 

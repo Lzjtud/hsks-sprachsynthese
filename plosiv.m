@@ -41,16 +41,21 @@ while i<=numel(buchstaben)
 	i=i+2;					%%erstmal um zwei erhöhen, wir gehen von einem Diphthong aus.
 	disp(doppellaut);
 	switch doppellaut
-		case 'de'			%%http://www.influenzaarchive.org/cgi/p/pod/dod-idx?c=icmc;idno=bbp2372.2007.174
-			f11=1;
-			f21=1800;
-			f12=500;
-			f22=2300;
-		case 'da'
+		case 'da'			%%http://www.influenzaarchive.org/cgi/p/pod/dod-idx?c=icmc;idno=bbp2372.2007.174
 			f11=250;
 			f21=1500;
 			f12=1000;
 			f22=1400;
+		case 'de'			
+			f11=1;
+			f21=1800;
+			f12=500;
+			f22=2300;
+		case 'di'	
+			f11=1;
+			f21=2400;
+			f12=320;
+			f22=3200;
 		case 'do'
 			f11=250;
 			f21=1400;
@@ -61,36 +66,57 @@ while i<=numel(buchstaben)
 			f21=1800;
 			f12=320;
 			f22=800;
-		case 'di'	
-			f11=1;
-			f21=2400;
-			f12=320;
-			f22=3200;
-		case 'be'	
-			f11=250;
-			f21=1400;
-			f12=500;
-			f22=2300;
 		case 'ba'
 			f11=500;
 			f21=1100;
 			f12=1000;
 			f22=1400;
-		case 'bo'
+		case 'be'	
 			f11=250;
-			f21=800;
+			f21=1400;
 			f12=500;
-			f22=1000;
+			f22=2300;
 		case 'bi'		
 			f11=1;
 			f21=2000;
 			f12=320;
 			f22=3200;
+		case 'bo'
+			f11=250;
+			f21=800;
+			f12=500;
+			f22=1000;
 		case 'bu'		
 			f11=250;
 			f21=700;
 			f12=320;
 			f22=800;
+		case 'ga'
+			f11=500;
+			f21=2200;
+			f12=1000;
+			f22=1400;
+		case 'ge'	
+			f11=250;
+			f21=2600;
+			f12=500;
+			f22=2300;
+		case 'gi'		
+			f11=1;
+			f21=3500;
+			f12=320;
+			f22=3200;
+		case 'go'
+			f11=250;
+			f21=1200;
+			f12=500;
+			f22=1000;
+		case 'gu'		
+			f11=50;
+			f21=1000;
+			f12=320;
+			f22=800;
+
 		case '|a'
 			f11=1;
 			f21=1;
