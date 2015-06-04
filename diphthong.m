@@ -6,7 +6,7 @@
 function y=diphthong(buchstaben,DUR,fs,B)
 
 %%%%%			PARAMETER			%%%%%
-if (nargin==0) buchstaben={'ae';'oe';'ue';'au';'ei';'eu';'ai'};end%Buchstaben
+if (nargin==0) buchstaben={'au';'ei';'eu';'ai'};end%Buchstaben
 if (nargin<=1) DUR=2; end %duration in sec
 if (nargin<=2) fs=44100; end %sampling freq in Hz
 if (nargin<=3) B=[100 160]; end %bandwidth	
@@ -44,10 +44,10 @@ for i=1:numel(buchstaben)
 			f12=200;
 			f22=2211;
 		case 'eu'		%%oi
-			f1=359;
-			f2=727;		
-			f1=200;
-			f2=2211;
+			f11=359;
+			f21=727;		
+			f12=200;
+			f22=2211;
 	end
 	
 	y=formantfilter(x,Ts,f11,B1,f12, U, O);	%1. Formantfilter
