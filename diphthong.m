@@ -29,25 +29,25 @@ for i=1:numel(buchstaben)
 	buchstabe=buchstaben(i);
 	switch char(buchstabe)
 		case 'au'		%%au
-			f11=1000;
-			f21=1400;
-			f12=320;
-			f22=800;
+			f11=732;
+			f21=1195;
+			f12=362;
+			f22=721;
 		case 'ai'		%%ai
-			f11=1000;
-			f21=1400;
-			f12=320;
-			f22=3200;
+			f11=732;
+			f21=1195;
+			f12=200;
+			f22=2211;
 		case 'ei'		%%ai
-			f11=1000;
-			f21=1400;
-			f12=320;
-			f22=3200;
+			f11=732;
+			f21=1195;
+			f12=200;
+			f22=2211;
 		case 'eu'		%%oi
-			f11=500;
-			f21=1000;		
-			f12=320;
-			f22=3200;
+			f1=359;
+			f2=727;		
+			f1=200;
+			f2=2211;
 	end
 	
 	y=formantfilter(x,Ts,f11,B1,f12, U, O);	%1. Formantfilter
