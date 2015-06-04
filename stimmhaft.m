@@ -36,57 +36,69 @@ for i=1:numel(buchstaben)
 			%f2=2300;
 			f1=372;
 			f2=1983;
+			f3=2500;
 			B1=25.64;
 			B2=65.47;
+			B3=120.4;
 		case 'i'
 			%f1=320;
 			%f2=3200;
 			f1=200;
 			f2=2211;
+			f3=3076;
 			B1=34.65;
 			B2=84.69;
+			B3=234.6;
 		case 'o'
 			%f1=500;
 			%f2=1000;
 			f1=359;
 			f2=727;
+			f3=2459;
 			B1=161.4;
 			B2=272.6;
+			B3=247.5;
 		case 'u'
 			%f1=320;
 			%f2=800;
 			f1=362;
 			f2=721;
+			f3=2301;
 			B1=159.3;
 			B2=351.7;
+			B3=279.2;
 		case 'ae'
 			%f1=700;
 			%f2=1800;
 			f1=596;
 			f2=1421;
+			f3=2299;
 			B1=99.65;
 			B2=173.0;
+			B3=280.0;
 		case 'oe'
 			%f1=500;
 			%f2=1400;
 			f1=335;
 			f2=1323;
+			f3=2190;
 			B1=51.23;
 			B2=129.0;
+			B3=110.6;
 		case 'ue'
 			%f1=320;
 			%f2=1650;
 			f1=284;
 			f2=1635;
+			f3=2077;
 			B1=92.18;
 			B2=177.6;
-		case 'j'
-			f1=250;
-			f2=1950;
+			B3=231.4;
 	end
 	
 	y=formantfilter(x,Ts,f1,B1);	%1. Formantfilter
 	y=formantfilter(y,Ts,f2,B2);	%2. Formantfilter
+	y=formantfilter(y,Ts,f3,B3);	%2. Formantfilter
 
 	wavwrite(y'/max(y),fs,strcat('stimmhaft-',char(buchstabe),'.wav'));
 end
