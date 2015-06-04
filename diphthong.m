@@ -3,17 +3,14 @@
 % 		Erzeugung eines Diphthong Lautes mittels Formantfilterung 		%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function y=diphthong(buchstaben,DUR,fs,B)
+function y=diphthong(buchstaben,DUR,fs)
 
 %%%%%			PARAMETER			%%%%%
 if (nargin==0) buchstaben={'au';'ei';'eu';'ai'};end%Buchstaben
 if (nargin<=1) DUR=2; end %duration in sec
 if (nargin<=2) fs=44100; end %sampling freq in Hz
-if (nargin<=3) B=[100 160]; end %bandwidth	
 	Ts=1/fs;
-	B1=B(1);	%Filterbandbreite Formant 1	Acoustic Phonetics von Kenneth N. Stevens!
-	B2=B(2);	%Filterbandbreite Formant 2
-
+	
 	%f0=150;	% Grundschwingung, Tonhoehe
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -23,44 +20,48 @@ if (nargin<=3) B=[100 160]; end %bandwidth
 	O = DUR*fs/3;	%%ein Drittel der Zeit wird offset	
 
 	disp(buchstaben);
+	f1=f2=B1=B2=0;	%%variablen global definiert...
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 for i=1:numel(buchstaben)
 	buchstabe=buchstaben(i);
 	switch char(buchstabe)
 		case 'au'		%%au
-			f11=732;
-			f21=1195;
-			f31=2516;
-			f12=362;
-			f22=721;
-			f32=2301;
+			[y , f1 , B1]=stimmhaft({'a'},DUR,fs,0);
+			[y , f2 , B2]=stimmhaft({'u'},DUR,fs,0);
 		case 'ai'		%%ai
-			f11=732;
-			f21=1195;
-			f31=2516;
-			f12=200;
-			f22=2211;
-			f32=3076;
+			[y , f1 , B1]=stimmhaft({'a'},DUR,fs,0);
+			[y , f2 , B2]=stimmhaft({'i'},DUR,fs,0);
 		case 'ei'		%%ai
-			f11=732;
-			f21=1195;
-			f31=2516;
-			f12=200;
-			f22=2211;
-			f32=3076;
+			[y , f1 , B1]=stimmhaft({'a'},DUR,fs,0);
+			[y , f2 , B2]=stimmhaft({'i'},DUR,fs,0);
 		case 'eu'		%%oi
-			f11=359;
-			f21=727;
-			f31=2459;		
-			f12=200;
-			f22=2211;
-			f32=3076;
+			[y , f1 , B1]=stimmhaft({'o'},DUR,fs,0);
+			[y , f2 , B2]=stimmhaft({'i'},DUR,fs,0);
+		case 'oi'		%%oi
+			[y , f1 , B1]=stimmhaft({'o'},DUR,fs,0);
+			[y , f2 , B2]=stimmhaft({'i'},DUR,fs,0);
+		case 'ui'		%%ui
+			[y , f1 , B1]=stimmhaft({'u'},DUR,fs,0);
+			[y , f2 , B2]=stimmhaft({'i'},DUR,fs,0);
 	end
+	f11=f1(1);
+	f21=f1(2);
+	f31=f1(3);
+	B11 = B1(1);
+	B21 = B1(2);
+	B31 = B1(3);
 	
-	y=formantfilter(x,Ts,f11,B1,f12, U, O);	%1. Formantfilter
-	y=formantfilter(y,Ts,f21,B2,f22, U, O);	%2. Formantfilter
-	y=formantfilter(y,Ts,f31,B2,f32, U, O);	%3. Formantfilter
+	f12=f2(1);
+	f22=f2(2);
+	f32=f2(3);
+	B12 = B2(1);
+	B22 = B2(2);
+	B32 = B2(3);
+
+	y=formantfilter(x,Ts,f11,B11,f12, U, O,B12);	%1. Formantfilter
+	y=formantfilter(y,Ts,f21,B21,f22, U, O,B22);	%2. Formantfilter
+	y=formantfilter(y,Ts,f31,B31,f32, U, O,B32);	%3. Formantfilter
 
 	wavwrite(y'/max(y),fs,strcat('stimmhaft-',char(buchstabe),'.wav'));
 end
