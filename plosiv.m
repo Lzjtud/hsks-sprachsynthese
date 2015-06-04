@@ -91,64 +91,31 @@ while i<=numel(buchstaben)
 			f11=1;
 			f21=1;
 	end
+	f=B=0;
 	switch char(doppellaut(2))
 		case 'a'
-			%f1=1000;
-			%f2=1400;
-			f1=732;
-			f2=1195;
-			B1=160.5;
-			B2=136.4;
+			[y , f , B]=stimmhaft({'a'},DUR,fs,0);
 		case 'e'
-			%f1=500;
-			%f2=2300;
-			f1=372;
-			f2=1983;
-			B1=25.64;
-			B2=65.47;
+			[y , f , B]=stimmhaft({'e'},DUR,fs,0);
 		case 'i'
-			%f1=320;
-			%f2=3200;
-			f1=200;
-			f2=2211;
-			B1=34.65;
-			B2=84.69;
+			[y , f , B]=stimmhaft({'i'},DUR,fs,0);
 		case 'o'
-			%f1=500;
-			%f2=1000;
-			f1=359;	
-			f2=727;
-			B1=161.4;
-			B2=272.6;
+			[y , f , B]=stimmhaft({'o'},DUR,fs,0);
 		case 'u'
-			%f1=320;
-			%f2=800;
-			f1=362;
-			f2=721;
-			B1=159.3;
-			B2=351.7;
+			[y , f , B]=stimmhaft({'u'},DUR,fs,0);
 		case 'ae'
-			%f1=700;
-			%f2=1800;
-			f1=596;
-			f2=1421;
-			B1=99.65;
-			B2=173.0;
+			[y , f , B]=stimmhaft({'ae'},DUR,fs,0);
 		case 'oe'
-			%f1=500;
-			%f2=1400;
-			f1=335;
-			f2=1323;
-			B1=51.23;
-			B2=129.0;
+			[y , f , B]=stimmhaft({'oe'},DUR,fs,0);
 		case 'ue'
-			%f1=320;
-			%f2=1650;
-			f1=284;
-			f2=1635;
-			B1=92.18;
-			B2=177.6;		
+			[y , f , B]=stimmhaft({'ue'},DUR,fs,0);	
 	end
+			f1=f(1);
+			f2=f(2);
+			B1=B(1);
+			B2=B(2);
+
+
 	y=formantfilter(x,Ts,f11,B1,f1, U, O);	%1. Formantfilter
 	y=formantfilter(y,Ts,f21,B2,f2, U, O);	%2. Formantfilter
 

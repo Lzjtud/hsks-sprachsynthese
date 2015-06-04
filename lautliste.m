@@ -19,7 +19,10 @@ switch laut
 	case 'ei'	lauttyp='diphthong';
 	case 'eu'	lauttyp='diphthong';
 	case 'ai'	lauttyp='diphthong';
+	case 'oi'	lauttyo='diphthong';
 	case 'ie'	lauttyp='diphthong';
+	case 'ui'	lauttyp='diphthong';
+	case 'ea'	lauttyp='diphthong';
 
 	case 'da'	lauttyp='plosiv';
 	case 'de'	lauttyp='plosiv';
