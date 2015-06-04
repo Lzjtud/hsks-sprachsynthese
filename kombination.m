@@ -59,6 +59,7 @@ lauttyp = 'none';
 	else
 		lauttyp='Fail!';		%es wurde kein Laut gefunden!!!!
 		disp('FAIL!!! Es wurde kein Lauttyp gefunden!!!');
+		return;
 	end	
 	if(length(word)>=charnum+max_size)			%Pruefen ob aufeinanderfolgende Laute zusammengehoeren
 		%disp(char(word(charnum:charnum+max_size)));	
