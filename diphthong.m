@@ -28,21 +28,6 @@ if (nargin<=3) B=[100 160]; end %bandwidth
 for i=1:numel(buchstaben)
 	buchstabe=buchstaben(i);
 	switch char(buchstabe)
-		case 'ae'
-			f11=700;
-			f21=1800;
-			f12=700;
-			f22=1800;
-		case 'oe'
-			f11=500;
-			f21=1400;
-			f12=500;
-			f22=1400;
-		case 'ue'
-			f11=320;
-			f21=1650;
-			f12=320;
-			f22=1650;
 		case 'au'		%%au
 			f11=1000;
 			f21=1400;
