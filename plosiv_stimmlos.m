@@ -3,7 +3,7 @@
 % 				Erzeugung einer Plosiv/Vokal-Lautkombination 			%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function y=plosiv(buchstaben,DUR,fs,B)
+function y=plosiv_stimmlos(buchstaben,DUR,fs,B)
 
 %%%%%			PARAMETER			%%%%%
 if (nargin==0) buchstaben={'de';'da';'do';'di'};end%Buchstaben
