@@ -6,14 +6,15 @@ function y=time_filter_simple(b1,a1,x,U,O,b2,a2)
 
 a=a1;
 b=b1;
-
+ta=220;	%%aktualisierungszeit in abtastwerten
 result_vec = zeros(1,length(x));  %%Ergebnisvektor
 M = length(b) -1;
 N = length(a) -1;
 
 
 for counter = 1:1:length(x)
-	if(counter<=O+U) && (counter >= O)	
+	condition = (counter<=O+U) && (counter >= O) && (mod(counter,ta) == 0);
+	if condition	
 		a=(a1*(U+O-counter)+a2*(counter-O))/U;
 		b=(b1*(U+O-counter)+b2*(counter-O))/U;
 	end
