@@ -1,6 +1,6 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%					HAUPTSEMINAR SPRACHSYNTHESE							%
-%				  Cepstrum-Analyse von WAV-Files						%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	HAUPTSEMINAR SPRACHSYNTHESE%
+%				  Cepstrum-Analyse von WAVFiles						%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %function y=cepstrumanalysis()
@@ -22,24 +22,40 @@ signal = signal.*h_window;
 % Berechnung des cepstrums
 spectrum = fft(signal);
 log_spectrum = log10(abs(spectrum));
-cepstrum = ifft(log_spectrum);
+cepstrum = real(ifft(log_spectrum));
 %x_axis = (1:size(cepstrum));
-plot(abs(cepstrum));		%man will doch den betrag?!
 
-% Fensterung des cepstrums, vorerst mit 0.25
+% Fensterung des cepstrums, vorerst mit 0.5
 cepstrum = cepstrum(1:size(cepstrum)/2);
+%plot(cepstrum);
 
 % Liftering (Filterung des Vokaltraktsignals mit Formanten)
 lift = zeros(length(cepstrum),1);
-lift(1:length(cepstrum)/4) = 1;
+length(cepstrum)
+lift(1:length(cepstrum)/400) = 1;
 lift_cepstr = cepstrum.*lift;
-mag_spec = fft(lift_cepstr);
+mag_spec = real(fft(lift_cepstr));
+plot(mag_spec);
 
+% Formantenbestimmung
+k = 1;
+formant = zeros(100,1);
+while length(formant)<101
+	for i = 2:(length(mag_spec)-1)
+		if mag_spec(i-1)<mag_spec(i) && mag_spec(i)>mag_spec(i+1)
+			formant(k) = mag_spec(k);
+			k = k+1;
+		else
+			continue;
+		end
 
-% TODO: Fensterung, DFT, Maximumsbestimmung, Automatische Bearbeitung aller WAV-Files im Ordner
+	end
+end
+disp(length(formant))
+
+% TODO: Maximumsbestimmung, Automatische Bearbeitung aller WAV-Files im Ordner
 
 
 % offene Fragen: wie naechste Fensterung vornehmen?
 % sind die Maxima der anschliessenden DFT die Formanten?
 % Wie genau wird die Bandbreite der Formanten abgelesen?
-
