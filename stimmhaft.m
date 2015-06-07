@@ -6,7 +6,7 @@
 function [y , f , B]=stimmhaft(buchstaben,DUR,fs,syn)
 
 %%%%%			PARAMETER			%%%%%
-if (nargin==0) buchstaben={'ae';'oe';'ue';'a';'u';'e';'i';'o'};end%Buchstaben
+if (nargin==0) buchstaben={'ae';'oe';'ue';'a';'u';'e';'i';'o';'r'};end%Buchstaben
 if (nargin<=1) DUR=2; end %duration in sec
 if (nargin<=2) fs=44100; end %sampling freq in Hz
 %if (nargin<=3) B=[100 160]; end %bandwidth
@@ -98,11 +98,21 @@ for i=1:numel(buchstaben)
 			B1=92.18;
 			B2=177.6;
 			B3=231.4;
+		case 'r'
+			f1=460;
+			f2=1113;
+			f3=2408;
+			f4=3347;
+			B1=100;
+			B2=500;
+			B3=800;
+			B4=1000;
 	end
 	if(syn == 1)
 		y=formantfilter(x,Ts,f1,B1);	%1. Formantfilter
 		y=formantfilter(y,Ts,f2,B2);	%2. Formantfilter
-		y=formantfilter(y,Ts,f3,B3);	%2. Formantfilter
+		y=formantfilter(y,Ts,f3,B3);	%3. Formantfilter
+		y=formantfilter(y,Ts,f4,B4);	%4. Formantfilter
 	else 
 		y=x;
 	end
