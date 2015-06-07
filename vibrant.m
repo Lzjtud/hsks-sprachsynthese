@@ -46,5 +46,5 @@ for i=1:numel(buchstaben)
 	end
 	f=[f1 f2 f3 f4];
 	B=[B1 B2 B3 f4];
-	wavwrite(y'/max(y),fs,strcat('stimmhaft-',char(buchstabe),'.wav'));
+	wavwrite(y'/max(y),fs,strcat('vibrant-',char(buchstabe),'.wav'));
 end
