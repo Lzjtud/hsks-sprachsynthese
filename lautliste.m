@@ -41,7 +41,6 @@ switch laut
 	case 'gi'	lauttyp='plosiv';	
 	case 'go'	lauttyp='plosiv';
 	case 'gu'	lauttyp='plosiv';
-	case '|a'	lauttyp='plosiv';
 
 	case 't'	lauttyp='plosiv_st';
 	case 'p'	lauttyp='plosiv_st';
