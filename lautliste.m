@@ -14,6 +14,7 @@ switch laut
 	case 'ae'	lauttyp='vokal';
 	case 'oe'	lauttyp='vokal';	
 	case 'ue'	lauttyp='vokal';
+	case 'r'	lauttyp='vokal';
 
 	case 'au'	lauttyp='diphthong';
 	case 'ei'	lauttyp='diphthong';
