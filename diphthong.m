@@ -47,6 +47,9 @@ for i=1:numel(buchstaben)
 		case 'ea'		%%ea
 			[y , f1 , B1]=stimmhaft({'e'},DUR,fs,0);
 			[y , f2 , B2]=stimmhaft({'a'},DUR,fs,0);
+		case 'ie'		%%ea
+			[y , f1 , B1]=stimmhaft({'i'},DUR,fs,0);
+			[y , f2 , B2]=stimmhaft({'e'},DUR,fs,0);
 	end
 	f11=f1(1);
 	f21=f1(2);
