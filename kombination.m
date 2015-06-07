@@ -81,7 +81,10 @@ window = 1;		%soll noch gefenster werden?
 			charnum_temp = charnum +2;												%diphtong hat 2 Buchstaben		
 		case 'vokal'
 			sound=stimmhaft({word(charnum:charnum+max_size)},phonemelength,fs);							%Buchstabe, Zeitdauer (Samples*Samplingtime), Samplingfreq
-			charnum_temp = charnum +1;												%vokal hat 1 Buchstaben			
+			charnum_temp = charnum +1;												%vokal hat 1 Buchstaben		
+		case 'vibrant'
+			sound=vibrant({word(charnum:charnum+max_size)},phonemelength,fs);							%Buchstabe, Zeitdauer (Samples*Samplingtime), Samplingfreq
+			charnum_temp = charnum +1;												%vibrant hat 1 Buchstaben			
 		case 'zisch'
 			sound=zischlaut({word(charnum:charnum+max_size)},phonemelength,fs);		%Buchstabe, Zeitdauer (Samples*Samplingtime), Samplingfreq
 			charnum_temp = charnum +max_size+1;										%Zisch hat x Buchstaben
