@@ -34,10 +34,10 @@ for i=1:numel(buchstaben)
 			%f2=7800;	%B2=1000;
 			%B1=500;
 			%B2=1000;
-			b1=fir1(30,[6800 8200]/(fs/2),'DC-0');
-			w1=1;
-			b2=fir1(50,[4000 7000]/(fs/2),'DC-0');
-			w2=.6;
+			b1=fir1(40,[6500 7500]/(fs/2),'DC-0');
+			w1=.5;
+			b2=fir1(50,[5500 6500]/(fs/2),'DC-0');
+			w2=.5;
 		case 'sch'		%Orientierung an Narayanan et al. 'Noise Source Models for Fricative Consonants'
 			%f1=2500;	%B1=300
 			%f2=5500;	%B2=500
@@ -59,10 +59,10 @@ for i=1:numel(buchstaben)
 			%f2=8000;
 			%B1=250;
 			%B2=2000;
-			b1=fir1(1,[5000]/(fs/2),'low');
+			b1=fir1(50,[900 1100]/(fs/2),'DC-0');
 			w1=.5;
-			b2=fir1(1,[3000]/(fs/2),'low');
-			w2=.5;
+			b2=fir1(10,[7000 9000]/(fs/2),'DC-0');
+			w2=.2;
 	end
 	y=w1*filter(b1,1,x)+w2*filter(b2,1,x);
 	%y=formantfilter(x,Ts,f1,B1)+formantfilter(x,Ts,f2,B2);	%Parallele Filterung, eventuell Wichtungsfaktoren
