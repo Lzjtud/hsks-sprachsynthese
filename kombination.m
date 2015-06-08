@@ -98,7 +98,7 @@ window = 1;		%soll noch gefenster werden?
 			sound=[zeros(1,floor(0.1*fs)) sound];
 			window = 0;		
 		case 'pause'
-			sound=zeros(1,phonemesamples*1.5);
+			sound=zeros(1,phonemesamples*1.2);
 			charnum_temp = charnum +1;												%pause hat 1
 		case 'nasal'
 			sound=nasal(word(charnum),phonemelength,fs);
