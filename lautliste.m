@@ -59,5 +59,9 @@ switch laut
 	case 'n'	lauttyp='nasal';
 	case 'm'	lauttyp='nasal';
 	
+	case 'l'	lauttyp='linquidl';
+	
+	case 'w'	lauttyp='fricationw';
+	
 	otherwise 	lauttyp='none';
 end

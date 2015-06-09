@@ -103,6 +103,12 @@ window = 1;		%soll noch gefenster werden?
 		case 'nasal'
 			sound=nasal(word(charnum),phonemelength,fs);
 			charnum_temp = charnum +1;
+		case 'linquidl'
+			sound=linquidl(word(charnum),phonemelength,fs);
+			charnum_temp = charnum +1;
+		case 'fricationw'
+			sound=fricationw(word(charnum),phonemelength,fs);
+			charnum_temp = charnum +1;
 	end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 phonemesamples_end=numel(sound);	
