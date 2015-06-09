@@ -43,7 +43,7 @@ if (nargin<=2) fs=44100; end %sampling freq in Hz
 			x0_4=sin(3.5*pi*f0*(t0(N3+1:N)-t0(N3)));
 			x0=[x0_1 x0_2 x0_3 x0_4];
 		case 'fricationw'
-			x0 = normrnd(0,1,[1 length(t0)]); 
+			x0=randn(1,length(t0)); 
 		otherwise
 			N=length(t0);
 			N1=floor(.6*N);

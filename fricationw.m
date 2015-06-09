@@ -23,10 +23,18 @@ disp(buchstaben);
 %%%%%%%%%%%%%%%%%%%%%		Anregungssignal 	 %%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-y=x;
+w=x;
 for i=0:1:5;
 [b a] = butter(6-i,(100+i*100)/(0.5*fs),'low');	%Manipulation des Signals im Frequenzbereich mit Tiefpassfilter(f0 = 800HZ)
-y = filter(b,a,y);
+w = filter(b,a,w);
 end
+
+w = formantfilter(w,Ts,266,150);
+w = formantfilter(w,Ts,900,150);
+
+[b a] = butter(5,3000/(0.5*fs),'low');	%Manipulation des Signals im Frequenzbereich mit Tiefpassfilter(f0 = 700HZ)
+w = filter(b,a,w);
+
+y=w;
 
 wavwrite(y'/max(y),fs,strcat('FRCw','.wav'));
